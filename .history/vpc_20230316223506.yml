@@ -6,7 +6,7 @@
        include_vars: vars/vpc_setup.yml
      - name: create my devvpc
        amazon.aws.ec2_vpc_net:
-         name: "{{vpc_name}}"
+         name: "{{vpcname}}"
          cidr_block: "{{vpccidr}}"
          region: "{{region}}"
          dns_support:  yes
