@@ -73,8 +73,7 @@
          cidr: "{{privsubcidr4}}"
          region: "{{region}}"
          az: "{{az2}}"
-         tags:
-            Name: privbsubnet4
+         
        register: privsubnet4out
     
     

@@ -64,7 +64,7 @@
          region: "{{region}}"
          az: "{{az1}}"
          tags:
-            Name: privbsubnet3
+            Name: privbsubnet1
        register: privsubnet3out 
      - name: create pri sub4
        amazon.aws.ec2_vpc_subnet:
@@ -73,8 +73,6 @@
          cidr: "{{privsubcidr4}}"
          region: "{{region}}"
          az: "{{az2}}"
-         tags:
-            Name: privbsubnet4
        register: privsubnet4out
     
     
