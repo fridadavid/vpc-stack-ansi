@@ -69,7 +69,7 @@
         map_public: no
        register: pri_subnet4out 
      - name: Create Internet gateway
-       amazon.aws.ec2_vpc.igw:
+       amazon.aws.ec2_vpcigw:
           vpc_id: "{{vpcout.vpc.id}}"
           state: "{{state}}"
           region: "{{region}}"
