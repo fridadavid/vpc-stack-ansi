@@ -77,7 +77,7 @@
             Name: privbsubnet4
        register: privsubnet4out
      - name: Internet gateway
-       ec2_vpc_igw:
+       amazon.aws.ec2_vpc_igw:
          vpc_id: "{{vpcout.vpc.id}}"
          state: "{{state}}"
          region: "{{region}}"
