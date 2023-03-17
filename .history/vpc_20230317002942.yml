@@ -22,7 +22,7 @@
          region: "{{region}}"
          az: "{{az1}}"
          map_public: yes
-       register: pubsubnet1out
+       register: pub_subnet1out
      - name: Create pub sub2
        amazon.aws.ec2_vpc_subnet:
          state: "{{state}}"
@@ -31,7 +31,7 @@
          region: "{{region}}"
          az: "{{az2}}"
          map_public: yes
-       register: pubsubnet2out 
+       register: pub_subnet2out 
      - name: Create pri sub1
        amazon.aws.ec2_vpc_subnet:
          state: "{{state}}"
@@ -39,7 +39,7 @@
          cidr: "{{privsubcidr1}}"
          region: "{{region}}"
          az: "{{az1}}"
-       register: privsubnet1out 
+       register: pri_subnet1out 
      - name: Create pri sub2
        amazon.aws.ec2_vpc_subnet:
         state: "{{state}}"
@@ -47,7 +47,7 @@
         cidr: "{{privsubcidr2}}"
         region: "{{region}}"
         az: "{{az2}}"
-       register: privsubnet2out 
+       register: pri_subnet2out 
      - name: Create pri sub3
        amazon.aws.ec2_vpc_subnet:
         state: "{{state}}"
@@ -75,14 +75,14 @@
      - name: Create  nat gateway1
        amazon.aws.ec2_vpc_nat_gateway:
           state: "{{state}}"
-          subnet_id: "{{pubsubnet1out.subnet.id}}"
+          subnet_id: "{{pub_subnet1out.subnet.id}}"
           release_eip: true
           region: "{{region}}"
        register: nat_gatewayout1
      - name: Create  nat gateway2
        amazon.aws.ec2_vpc_nat_gateway:
           state: "{{state}}"
-          subnet_id: "{{pubsubnet2out.subnet.id}}"
+          subnet_id: "{{pub_subnet2out.subnet.id}}"
        release_eip: false
        region: "{{region}}"
        register: nat_gatewayout2
@@ -93,8 +93,8 @@
           tags:
                 Name: public_route_table
           subnets:
-              - "{{ pubsubnet2out.subnet.id }}"
-              - "{{ pubsubnet1out.subnet.id }}"
+              - "{{ pub_subnet2out.subnet.id }}"
+              - "{{ pub_subnet1out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
                 gateway_id: "{{ igwout.gateway.id }}"
@@ -108,10 +108,10 @@
           tags:
               Name: privateroute_table
           subnets:
-              - "{{ privsubnet1out.subnet.id }}"
-              - "{{ privsubnet2out.subnet.id }}"
-              - "{{ privsubnet3out.subnet.id }}"
-              - "{{ privsubnet4out.subnet.id }}"
+              - "{{ pri_subnet1out.subnet.id }}"
+              - "{{ pri_subnet2out.subnet.id }}"
+              - "{{ pri_subnet3out.subnet.id }}"
+              - "{{ pri_subnet4out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
                 instance_id: "{{ nat_gatewayout1.instance_id }}"

@@ -110,8 +110,8 @@
           subnets:
               - "{{ privsubnet1out.subnet.id }}"
               - "{{ privsubnet2out.subnet.id }}"
-              - "{{ privsubnet3out.subnet.id }}"
-              - "{{ privsubnet4out.subnet.id }}"
+              - "{{ pri_subnet3out.subnet.id }}"
+              - "{{ pri_subnet4out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
                 instance_id: "{{ nat_gatewayout1.instance_id }}"
