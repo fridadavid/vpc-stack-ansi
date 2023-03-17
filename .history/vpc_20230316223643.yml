@@ -17,7 +17,7 @@
      - name: Create pub sub1
        amazon.aws.ec2_vpc_subnet:
          state: present
-         vpc_id: "{{vpcout.vpc.id}}"
+         vpc_id: "{{vpc-out.vpc.id}}"
          cidr: "{{pubsubcidr1}}"
          region: "{{region}}"
          az: "{{az1}}"
