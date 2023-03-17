@@ -109,7 +109,7 @@
               - "{{ pubsubnet1out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
-                gateway_id: "{{ igwout.gateway_id }}"
+                gateway_id: "{{ igwout.gateway.id }}"
        register: public_route_tableout
      - name: NAT-protected route table for private sub
        ec2_vpc_route_table:
@@ -124,7 +124,7 @@
               - "{{ privsubnet4out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
-                nat_gateway_id: "{{ nat_gatewayout1.nat_gateway_id }}"
+                nat_gate: "{{ nat_gatewayout1.instance_id }}"
        register: nat_route_table
       
     

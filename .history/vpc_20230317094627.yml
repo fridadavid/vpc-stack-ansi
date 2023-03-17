@@ -124,7 +124,7 @@
               - "{{ privsubnet4out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
-                nat_gateway_id: "{{ nat_gatewayout1.nat_gateway_id }}"
+                nat_gateway_id: "{{ nat_gatewayout1.nat_gateway.id }}"
        register: nat_route_table
       
     
