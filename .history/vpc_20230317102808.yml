@@ -102,10 +102,10 @@
           state: "{{state}}"
           subnet_id: "{{pubsubnet1out.subnet.id}}"
           wait: yes
-          if_exist_do_not_create: true
+          if
           region: "{{region}}"
        register: nat_gatewayout1
-     - name: route table for private sub
+     - name: protected route table for private sub
        ec2_vpc_route_table:
           vpc_id: "{{vpcout.vpc.id}}"
           region: "{{region}}"
