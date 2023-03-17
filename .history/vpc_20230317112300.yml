@@ -122,5 +122,4 @@
        register: private_route_tableout
      - name: create variable file for vpc output
        copy: 
-           content: "vpcid: {{vpcoutvpc.id}}\npubsubnet1id: {{pubsubnet1out.subnet.id}}\n\npubsubnet2id: {{pubsubnet2out.subnet.id}}\nigwid: {{ igwout.gateway_id}}\nprivsubnet1id: {{privsubnet1out.subnet.id}}\nprivsubnet2id: {{privsubnet2out.subnet.id}}\nprivsubnet3id: {{privsubnet3out.subnet.id}}\nprivsubnet4id: {{privsubnet4out.subnet.id}}\nnat_gateway1id: {{nat_gatewayout1.nat_gateway_id}}\npublic_routetableid: {{pubsubnet1out.route_table.id}}\nprivate_route_tableid: {{private_route_tableout.route_table.id}}"
-       dest: vars/vpc_output.yml
+           content: "vpcid: {{vpcoutvpc.id}}\npubsubnet1id: {{pubsubnet1out.subnet.id}}\n\npubsubnet2id: {{pubsubnet2out.subnet.id}}\nigwid: {{ igwout.gateway_id}}\nprivsubnet1id: {{privsubnet1out.subnet.id}}\nprivsubnet2id: {{privsubnet2out.subnet.id}}\nprivsubnet3id: {{privsubnet3out.subnet.id}}\nprivsubnet4id: {{privsubnet4out.subnet.id}}\nnat_gateway1id: {{nat_gatewayout1.nat_gateway_id}}\npublic_routetableid: {{pubsubnet1out.subnet.id}}\"
