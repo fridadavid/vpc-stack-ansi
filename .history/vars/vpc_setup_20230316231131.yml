@@ -10,4 +10,4 @@ privsubcidr3: 10.0.5.0/24
 privsubcidr4: 10.0.6.0/24
 az1: us-east-1a
 az2: us-east-1b
-igw: devigw
+

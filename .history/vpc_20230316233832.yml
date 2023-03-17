@@ -95,7 +95,7 @@
           vpc_id: "{{vpcout.vpc.id}}"
           region: "{{region}}"
           tags:
-                Name: public_route_table
+                Name: Publicroute_
           subnets:
               - "{{ pub_subnet2out.subnet.id }}"
               - "{{ pub_subnet1out.subnet.id }}"
@@ -104,20 +104,4 @@
                 gateway_id: "{{ igwout.gateway_id }}"
               - dest: ::/0
                 gateway_id: "{{ igwout.gateway_id }}"
-       register: public_route_tableout
-     - name: NAT-protected route table for private sub
-       amazon.aws.ec2_vpc_route_table:
-          vpc_id: "{{vpcout.vpc.id}}"
-          region: "{{region}}"
-          tags:
-              Name: privateroute_table
-          subnets:
-              - "{{ pri_subnet1out.subnet.id }}"
-              - "{{ pri_subnet2out.subnet.id }}"
-              - "{{ pri_subnet3out.subnet.id }}"
-              - "{{ pri_subnet4out.subnet.id }}"
-          routes:
-              - dest: 0.0.0.0/0
-                instance_id: "{{ nat_gatewayout1.instance_id }}"
-       register: nat_route_table
-      
+        register: public_route_table

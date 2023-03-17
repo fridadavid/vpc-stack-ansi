@@ -105,8 +105,8 @@
               - dest: ::/0
                 gateway_id: "{{ igwout.gateway_id }}"
        register: public_route_tableout
-     - name: NAT-protected route table for private sub
-       amazon.aws.ec2_vpc_route_table:
+      - name: NAT-protected route table for private sub
+         amazon.aws.ec2_vpc_route_table:
           vpc_id: "{{vpcout.vpc.id}}"
           region: "{{region}}"
           tags:
@@ -119,5 +119,5 @@
           routes:
               - dest: 0.0.0.0/0
                 instance_id: "{{ nat_gatewayout1.instance_id }}"
-       register: nat_route_table
+         register: nat_route_table
       

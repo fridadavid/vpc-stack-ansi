@@ -1,0 +1,43 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+     - name: Import VPC variables
+       include_vars: vars/vpc_setup.yml
+     - name: create my devvpc
+       amazon.aws.ec2_vpc_net:
+         name: "{{vpc_name}}"
+         cidr_block: "{{vpccidr}}"
+         region: "{{region}}"
+         dns_support:  yes
+         dns_hostnames:  yes
+         tenancy: default
+         state: "{{state}}"
+       register: vpcout
+     - name: Create pub sub1
+       amazon.aws.ec2_vpc_subnet:
+         state: present
+         vpc_id: "{{vpcout.vpc.id}}"
+         cidr: "{{pubsubcidr1}}"
+         region: "{{region}}"
+         az: "{{az1}}"
+         map_public: yes
+       register: pub_subnet1out
+     - name: Create pub sub2
+      amazon.aws.ec2_vpc_subnet:
+         state: present
+         vpc_id: "{{vpcout.vpc.id}}"
+         cidr: "{{pubsubcidr2}}"
+         region: "{{region}}"
+         az: "{{az2}}"
+         map_public: yes
+       register: pub_subnet2out 
+     - name: Create pub sub2
+       amazon.aws.ec2_vpc_subnet:
+         state: present
+         vpc_id: "{{vpcout.vpc.id}}"
+         cidr: "{{pubsubcidr2}}"
+         region: "{{region}}"
+         az: "{{az2}}"
+         map_public: yes
+       register: pub_subnet2out 
