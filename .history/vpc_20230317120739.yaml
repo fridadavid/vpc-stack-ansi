@@ -120,16 +120,7 @@
               - dest: 0.0.0.0/0
                 nat_gateway_id: "{{ nat_gatewayout1.nat_gateway_id }}"
        register: nat_route_tableout
-     - set_fact:
-             vpcid: "{{vpcout.vpc.id}}"
-             pubsubnet1id:  "{{pubsubnet1out.subnet.id}}"
-             pubsubnet2id:  "{{pubsubnet2out.subnet.id}}"
-             privsubnet1id:  "{{privsubnet1out.subnet.id}}"
-             privsubnet2id:  "{{privsubnet2out.subnet.id}}"
-             privsubnet3id:  "{{privsubnet3out.subnet.id}}"
-             privsubnet4id:  "{{privsubnet4out.subnet.id}}"
-             cacheable: yes
-
+     - set_facts
      - name: create variable file for vpc output
        copy: 
           content: "vpcid: {{vpcout.vpc.id}}\npubsubnet1id: {{pubsubnet1out.subnet.id}}\n\npubsubnet2id: {{pubsubnet2out.subnet.id}}\nigwid: {{ igwout.gateway_id}}\nprivsubnet1id: {{privsubnet1out.subnet.id}}\nprivsubnet2id: {{privsubnet2out.subnet.id}}\nprivsubnet3id: {{privsubnet3out.subnet.id}}\nprivsubnet4id: {{privsubnet4out.subnet.id}}\n"

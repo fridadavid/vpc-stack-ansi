@@ -124,11 +124,9 @@
              vpcid: "{{vpcout.vpc.id}}"
              pubsubnet1id:  "{{pubsubnet1out.subnet.id}}"
              pubsubnet2id:  "{{pubsubnet2out.subnet.id}}"
-             privsubnet1id:  "{{privsubnet1out.subnet.id}}"
-             privsubnet2id:  "{{privsubnet2out.subnet.id}}"
-             privsubnet3id:  "{{privsubnet3out.subnet.id}}"
-             privsubnet4id:  "{{privsubnet4out.subnet.id}}"
-             cacheable: yes
+             privsubnet1id: "{{privsubnet1out.subnet.id}}"
+             privsubnet2id: "{{privsubnet2out.subnet.id}}"
+              privsubnet1id: "{{privsubnet1out.subnet.id}}"
 
      - name: create variable file for vpc output
        copy: 
