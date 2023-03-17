@@ -80,8 +80,6 @@
        amazon.aws.ec2_vpc_igw:
          vpc_id: "{{vpcout.vpc.id}}"
          state: "{{state}}"
-         tags:
-            Name: dev_igw
-       register: igwout
+       register: igw
     
     

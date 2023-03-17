@@ -81,7 +81,7 @@
          vpc_id: "{{vpcout.vpc.id}}"
          state: "{{state}}"
          tags:
-            Name: dev_igw
-       register: igwout
+            Name: privbsubnet4
+       register: igw
     
     

@@ -77,11 +77,9 @@
             Name: privbsubnet4
        register: privsubnet4out
      - name: Create Internet gateway
-       amazon.aws.ec2_vpc_igw:
-         vpc_id: "{{vpcout.vpc.id}}"
-         state: "{{state}}"
-         tags:
-            Name: dev_igw
-       register: igwout
+  amazon.aws.ec2_vpc_igw:
+    vpc_id: vpc-abcdefgh
+    state: present
+  register: igw
     
     
