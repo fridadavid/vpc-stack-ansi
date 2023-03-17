@@ -73,6 +73,8 @@
           vpc_id: "{{vpcout.vpc.id}}"
           state: "{{state}}"
           region: "{{region}}"
+          tags:
+                Name: "{{igw}}"
        register: igwout
      - name: Create  nat gateway1
        amazon.aws.ec2_vpc_nat_gateway:
