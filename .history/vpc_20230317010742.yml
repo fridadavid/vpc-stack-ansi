@@ -64,6 +64,12 @@
          region: "{{region}}"
          az: "{{az2}}"
        register: privsubnet4out
+      - name: Create Internet gateway
+       amazon.aws.ec2_vpc_igw:
+          vpc_id: "{{vpcout.vpc.id}}"
+          state: "{{state}}"
+          region: "{{region}}"
+       register: igwout
      - name: Create  nat gateway1
        amazon.aws.ec2_vpc_nat_gateway:
           state: "{{state}}"
