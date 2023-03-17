@@ -99,9 +99,9 @@
               - "{{ pub_subnet1out.subnet.id }}"
           routes:
               - dest: 0.0.0.0/0
-                gateway_id: "{{ igwout.gateway.id }}"
+                gateway_id: "{{ igwout.gatewayid }}"
               - dest: ::/0
-                gateway_id: "{{ igwout.gateway.id }}"
+                gateway_id: "{{ igwout.gateway_id }}"
        register: public_route_tableout
      - name: NAT-protected route table for private sub
        amazon.aws.ec2_vpc_route_table:

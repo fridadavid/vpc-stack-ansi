@@ -101,7 +101,7 @@
               - dest: 0.0.0.0/0
                 gateway_id: "{{ igwout.gateway.id }}"
               - dest: ::/0
-                gateway_id: "{{ igwout.gateway.id }}"
+                gateway_id: "{{ igwout.gatewayid }}"
        register: public_route_tableout
      - name: NAT-protected route table for private sub
        amazon.aws.ec2_vpc_route_table:
