@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+     - name: Import VPC variables
+       include_vars:
+         file:  # not required. The file name from which variables should be loaded. If the path is relative, it will look for the file in vars/ subdirectory of a role or relative to playbook.
+         dir:  # not required. The directory name from which the variables should be loaded. If the path is relative and the task is inside a role, it will look inside the role's vars/ subdirectory. If the path is relative and not inside a role, it will be parsed relative to the playbook.
+         name:  # not required. The name of a variable into which assign the included vars. If omitted (null) they will be made top level vars.
+         depth: 0 # not required. When using C(dir), this module will, by default, recursively go through each sub directory and load up the variables. By explicitly setting the depth, this module will only go as deep as the depth.
+         files_matching:  # not required. Limit the files that are loaded within any directory to this regular expression.
+         ignore_files:  # not required. List of file names to ignore.
+         extensions: "['json', 'yaml', 'yml']" # not required. List of file extensions to read when using C(dir).
+         ignore_unknown_extensions: False # not required. Ignore unknown file extensions within the directory. This allows users to specify a directory containing vars files that are intermingled with non-vars files extension types (e.g. a directory with a README in it and vars files).
+         free-form:  # not required. This module allows you to specify the 'file' option directly without any other options. There is no 'free-form' option, this is just an indicator, see example below.

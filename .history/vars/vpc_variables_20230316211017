@@ -1,0 +1,12 @@
+vpc-name: devvpc
+vpccidr: 10.0.0.0/16
+region: us-east-1
+state: present
+pubsubcidr1: 10.0.1.0/24
+pubsubcidr2: 10.0.2.0/24
+prisubcidr1: 10.0.3.0/24
+privsubcidr2: 10.0.4.0/24
+privsubcidr3: 10.0.5.0/24
+privsubcidr4: 10.0.6.0/24
+az1: us-east-1
+az2

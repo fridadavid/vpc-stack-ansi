@@ -1,0 +1,16 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+     - name: Import VPC variables
+       include_vars: vars/vpc_variables
+     - name: create my devvpc
+       amazon.aws.ec2_vpc_net:
+         name: "{{vpc-name}}"
+         cidr_block: "{{vpccidr}}"
+         region: "{{region}}"
+         dn
+    tags:
+      module: ec2_vpc_net
+      this: works
+    tenancy: dedicated
