@@ -39,6 +39,7 @@
          cidr: "{{privsubcidr1}}"
          region: "{{region}}"
          az: "{{az1}}"
+         map_public: no
        register: pri_subnet1out 
      - name: Create pri sub2
        amazon.aws.ec2_vpc_subnet:
@@ -47,6 +48,7 @@
         cidr: "{{privsubcidr2}}"
         region: "{{region}}"
         az: "{{az2}}"
+        map_public: no
        register: pri_subnet2out 
      - name: Create pri sub3
        amazon.aws.ec2_vpc_subnet:
@@ -55,6 +57,7 @@
         cidr: "{{privsubcidr3}}"
         region: "{{region}}"
         az: "{{az1}}"
+        map_public: no
        register: pri_subnet3out 
      - name: Create pri sub4
        amazon.aws.ec2_vpc_subnet:

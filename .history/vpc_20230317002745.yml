@@ -39,6 +39,7 @@
          cidr: "{{privsubcidr1}}"
          region: "{{region}}"
          az: "{{az1}}"
+         map_public: no
        register: pri_subnet1out 
      - name: Create pri sub2
        amazon.aws.ec2_vpc_subnet:
