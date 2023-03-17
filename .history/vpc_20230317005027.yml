@@ -53,7 +53,7 @@
          state: "{{state}}"
          vpc_id: "{{vpcout.vpc.id}}"
          cidr: "{{privsubcidr3}}"
-         region: "{{region}}"
-         az: "{{az1}}"
+        region: "{{region}}"
+        az: "{{az1}}"
        register: privsubnet3out 
     

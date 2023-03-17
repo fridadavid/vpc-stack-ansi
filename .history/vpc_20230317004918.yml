@@ -42,18 +42,18 @@
        register: privsubnet1out 
      - name: Create pri sub2
        amazon.aws.ec2_vpc_subnet:
-         state: "{{state}}"
-         vpc_id: "{{vpcout.vpc.id}}"
-         cidr: "{{privsubcidr2}}"
-         region: "{{region}}"
-         az: "{{az2}}"
+          state: "{{state}}"
+          vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{privsubcidr2}}"
+        region: "{{region}}"
+        az: "{{az2}}"
        register: privsubnet2out 
      - name: Create pri sub3
        amazon.aws.ec2_vpc_subnet:
-         state: "{{state}}"
-         vpc_id: "{{vpcout.vpc.id}}"
-         cidr: "{{privsubcidr3}}"
-         region: "{{region}}"
-         az: "{{az1}}"
+        state: "{{state}}"
+        vpc_id: "{{vpcout.vpc.id}}"
+        cidr: "{{privsubcidr3}}"
+        region: "{{region}}"
+        az: "{{az1}}"
        register: privsubnet3out 
     

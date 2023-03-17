@@ -55,5 +55,5 @@
          cidr: "{{privsubcidr3}}"
          region: "{{region}}"
          az: "{{az1}}"
-       register: privsubnet3out 
+      register: privsubnet3out 
     
