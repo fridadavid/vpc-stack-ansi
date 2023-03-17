@@ -84,19 +84,6 @@
          tags:
             Name: dev_igw
        register: igwout
-     - name: public subnet route table
-       ec2_vpc_route_table:
-          vpc_id: "{{vpcout.vpc.id}}"
-          region: "{{region}}"
-          tags:
-                Name: public_route_table
-          subnets:
-              - "{{ pubsubnet1out.subnet.id }}"
-              - "{{ pubsubnet2out.subnet.id }}"
-          routes:
-              - dest: 0.0.0.0/0
-                gateway_id: "{{ igwout.gateway_id }}"
-       register: public_route_tableout
      - name: Create  nat gateway1
        ec2_vpc_nat_gateway:
           state: "{{state}}"
@@ -111,6 +98,19 @@
          release_eip: true
          region: "{{region}}"
        register: nat_gatewayout2
+     - name: public subnet route table
+       ec2_vpc_route_table:
+          vpc_id: "{{vpcout.vpc.id}}"
+          region: "{{region}}"
+          tags:
+                Name: public_route_table
+          subnets:
+              - "{{ pubsubnetout.subnet.id }}"
+              - "{{ pubsubnet1out.subnet.id }}"
+          routes:
+              - dest: 0.0.0.0/0
+                gateway_id: "{{ igwout.gateway_id }}"
+       register: public_route_tableout
      - name: NAT-protected route table for private sub
        ec2_vpc_route_table:
           vpc_id: "{{vpcout.vpc.id}}"
