@@ -84,7 +84,7 @@
          tags:
             Name: dev_igw
        register: igwout
-     - name: public  route table
+     - name: public subnet route table
        ec2_vpc_route_table:
           vpc_id: "{{vpcout.vpc.id}}"
           region: "{{region}}"
@@ -96,7 +96,7 @@
           routes:
               - dest: 0.0.0.0/0
                 gateway_id: "{{ igwout.gateway_id }}"
-       register: public_routetableout
+       register: public_route_tableout
      - name: Create  nat gateway1
        ec2_vpc_nat_gateway:
           state: "{{state}}"
