@@ -68,14 +68,13 @@
         az: "{{az2}}"
         map_public: no
        register: privsubnet4out
-       debug:  privsubnet4out
+      debug:  privsubnet4out
      - name: Create Internet gateway
        amazon.aws.ec2_vpc_igw:
           vpc_id: "{{vpcout.vpc.id}}"
           state: "{{state}}"
           region: "{{region}}"
        register: igwout
-       debug:  igwout
      - name: Create  nat gateway1
        amazon.aws.ec2_vpc_nat_gateway:
           state: "{{state}}"
