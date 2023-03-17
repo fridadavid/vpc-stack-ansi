@@ -86,7 +86,7 @@
        register: igwout
      - name: public  route table
        ec2_vpc_route_table:
-          vpc_id: "{{vpcout.vpc.id}}"
+          vpc_id: "{{vpcoutc.id}}"
           region: "{{region}}"
           tags:
                 Name: public_routetable
