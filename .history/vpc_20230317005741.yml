@@ -64,55 +64,11 @@
          region: "{{region}}"
          az: "{{az2}}"
        register: privsubnet4out
+       debug:  privsubnet4out
      - name: Create Internet gateway
        amazon.aws.ec2_vpc_igw:
           vpc_id: "{{vpcout.vpc.id}}"
           state: "{{state}}"
           region: "{{region}}"
        register: igwout
-     - name: Create  nat gateway1
-       amazon.aws.ec2_vpc_nat_gateway:
-          state: "{{state}}"
-          subnet_id: "{{pubsubnet1out.subnet.id}}"
-          release_eip: true
-          region: "{{region}}"
-       register: nat_gatewayout1
-     - name: Create  nat gateway2
-       amazon.aws.ec2_vpc_nat_gateway:
-          state: "{{state}}"
-          subnet_id: "{{pubsubnet2out.subnet.id}}"
-          release_eip: false
-          region: "{{region}}"
-       register: nat_gatewayout2
-     - name: public subnet route table
-       amazon.aws.ec2_vpc_route_table:
-          vpc_id: "{{vpcout.vpc.id}}"
-          region: "{{region}}"
-          tags:
-                Name: public_route_table
-          subnets:
-              - "{{ pubsubnet2out.subnet.id }}"
-              - "{{ pubsubnet1out.subnet.id }}"
-          routes:
-              - dest: 0.0.0.0/0
-                gateway_id: "{{ igwout.gateway.id }}"
-              - dest: ::/0
-                gateway_id: "{{ igwout.gateway.id }}"
-       register: public_route_tableout
-     - name: NAT-protected route table for private sub
-       amazon.aws.ec2_vpc_route_table:
-          vpc_id: "{{vpcout.vpc.id}}"
-          region: "{{region}}"
-          tags:
-              Name: privateroute_table
-          subnets:
-              - "{{ privsubnet1out.subnet.id }}"
-              - "{{ privsubnet2out.subnet.id }}"
-              - "{{ privsubnet3out.subnet.id }}"
-              - "{{ privsubnet4out.subnet.id }}"
-          routes:
-              - dest: 0.0.0.0/0
-                instance_id: "{{ nat_gatewayout1.instance_id }}"
-       register: nat_route_table
-      
     

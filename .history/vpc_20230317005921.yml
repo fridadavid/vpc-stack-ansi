@@ -82,7 +82,7 @@
           state: "{{state}}"
           subnet_id: "{{pubsubnet2out.subnet.id}}"
           release_eip: false
-          region: "{{region}}"
+       region: "{{region}}"
        register: nat_gatewayout2
      - name: public subnet route table
        amazon.aws.ec2_vpc_route_table:
