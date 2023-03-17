@@ -83,14 +83,14 @@
          region: "{{region}}"
          tags:
             Name: dev_igw
-       register: igwout
-     - name: Create  nat gateway1
-       ec2_vpc_nat_gateway:
+        register: igwout
+      - name: Create  nat gateway1
+        ec2_vpc_nat_gateway:
           state: "{{state}}"
           subnet_id: "{{pubsubnet1out.subnet.id}}"
           release_eip: true
           region: "{{region}}"
-       register: nat_gatewayout1
+        register: nat_gatewayout1
      - name: Create  nat gateway2
        ec2_vpc_nat_gateway:
          state: "{{state}}"
