@@ -18,7 +18,7 @@
        copy: 
            content: "{{ansikeyout.key.private_key}}"
            dest: "./ec2keypem"
-           mode: "{{mode}}"
+           mode: ""
            when: ansikeyout.changed
 
      - name: bastionsg security group
