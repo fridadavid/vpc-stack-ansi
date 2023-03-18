@@ -16,7 +16,7 @@
 
      - name: save private key in ec2key.pem
        copy: 
-           content: "{{keypai_name}}"
+           content: "{{key}}"
            dest: "tmp/ec2key.pem"
            mode: 0600
            when: ansikeyout.changed
