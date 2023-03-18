@@ -32,4 +32,4 @@
               from_port: "{{from_port1}}"
               to_port: "{{to_port1}}"
               cidr_ip: "{{myip}}"
-        register: bastionsgout
+        register: 

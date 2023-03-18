@@ -7,5 +7,4 @@ state: present
 mode: 0600
 myip: 45.48.74.58/32
 from_port1: 22
-to_port1: 22
-proto: tcp
+to

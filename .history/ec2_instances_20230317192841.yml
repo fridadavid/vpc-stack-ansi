@@ -28,8 +28,8 @@
          vpc_id: "{{vpcid}}"
          region: "{{region}}"
          rules:
-            - proto: "{{proto}}"
-              from_port: "{{from_port1}}"
-              to_port: "{{to_port1}}"
-              cidr_ip: "{{myip}}"
-        register: bastionsgout
+            - proto: tcp
+              from_port: 
+              to_port: 22
+              cidr_ip: 0.0.0.0/0
+              rule_desc: allow all on port 80

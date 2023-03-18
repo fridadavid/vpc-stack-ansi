@@ -21,15 +21,16 @@
            mode: "{{mode}}"
         when: ansikeyout.changed
 
-     - name: bastionsg security group
-       amazon.aws.ec2_security_group:
-         name: "{{ bastionsg_name }}"
-         description: bastionsg with port 22 open
-         vpc_id: "{{vpcid}}"
-         region: "{{region}}"
-         rules:
-            - proto: "{{proto}}"
-              from_port: "{{from_port1}}"
-              to_port: "{{to_port1}}"
-              cidr_ip: "{{myip}}"
-        register: bastionsgout
+     - name: example using security group rule descriptions
+  amazon.aws.ec2_security_group:
+    name: "{{ name }}"
+    description: sg with rule descriptions
+    vpc_id: vpc-xxxxxxxx
+    profile: "{{ aws_profile }}"
+    region: us-east-1
+    rules:
+      - proto: tcp
+        ports:
+        - 80
+        cidr_ip: 0.0.0.0/0
+        rule_desc: allow all on port 80
