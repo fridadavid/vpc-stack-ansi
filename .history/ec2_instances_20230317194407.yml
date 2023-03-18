@@ -22,7 +22,7 @@
            when: ansikeyout.changed
 
      - name: bastionsg security group
-       ec2_group:
+       ec2__group:
           name: "{{ bastionsg_name }}"
           description: bastionsg with port 22 open
           vpc_id: "{{vpcid}}"
