@@ -1,0 +1,9 @@
+vpcid: vpc-0fc10109c1e224b79
+pubsubnet1id: subnet-0bc3128edd6b974fd
+
+pubsubnet2id: subnet-00a1e6f6d89a46abe
+igwid: igw-0cb27f3c3b08d0db4
+privsubnet1id: subnet-0d23bb8df10a2496c
+privsubnet2id: subnet-046c76cf9c98d703b
+privsubnet3id: subnet-0945e297e0d74bb3a
+privsubnet4id: subnet-0a13a476a4d345757

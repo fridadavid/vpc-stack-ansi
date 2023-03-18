@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+     - name: Import VPC  output variables
+       include_vars: vars/vpc_output.yml
+     - name: Import ec2 output variables
+       include_vars: vars/vpc_output.yml

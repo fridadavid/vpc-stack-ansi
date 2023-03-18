@@ -1,0 +1,13 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+     - name: Import VPC  output variables
+       include_vars: vars/vpc_output.yml
+     - name: Import ec2 instances  variables
+       include_vars: vars/ec2_variables.yml
+
+     - name: create a key pair
+       amazon.aws.ec2_key:
+       name: "{{keypair_name}}"
+       region: "{{region}}"

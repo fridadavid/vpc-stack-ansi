@@ -1,0 +1,5 @@
+ami: ami-02f3f602d23f1659d
+keypair_name: ansikey
+bastionsg_name: bastionsg
+instance_type: t2.micro
+region: us-east-1
