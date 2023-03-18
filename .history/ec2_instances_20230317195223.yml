@@ -14,11 +14,11 @@
          state: "{{state}}"
        register: ansikeyout
 
-     - name: save key in ec2key.pem
+     - name: save key in ec2keypem
        copy: 
            content: "{{ansikeyout.key.private_key}}"
            dest: "./ec2key.pem"
-           mode: 0600
+           mode: "{{mode}}"
            when: ansikeyout.changed
 
      - name: bastionsg security group
