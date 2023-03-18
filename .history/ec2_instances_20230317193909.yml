@@ -26,8 +26,8 @@
           name: "{{ bastionsg_name }}"
           description: bastionsg with port 22 open
           vpc_id: "{{vpcid}}"
-          region: "{{region}}"
-          rules:
+         region: "{{region}}"
+         rules:
             - proto: "{{proto}}"
               from_port: "{{from_port1}}"
               to_port: "{{to_port1}}"
